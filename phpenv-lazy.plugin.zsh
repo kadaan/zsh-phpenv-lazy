@@ -4,7 +4,7 @@ if type phpenv &> /dev/null; then
   export PATH="${PHPENV_SHIMS}:${PATH}"
   source $(which phpenv)/../../completions/phpenv.zsh
   function phpenv() {
-    unset phpenv
+    unset -f phpenv > /dev/null 2>&1
     eval "$(command phpenv init -)"
     phpenv "$@"
   }
